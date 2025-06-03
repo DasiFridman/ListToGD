@@ -46,15 +46,27 @@ jQuery(document).ready(function($) {
     $('#ltgdai-import-form').on('submit', function(e) {
         // בדיקת תקינות בסיסית
         var hasEmptyUrls = false;
+        var filledCount = 0;
+        
         $('.ltgdai-url-input').each(function() {
-            if (!$(this).val()) {
+            if ($(this).val()) {
+                filledCount++;
+            } else {
                 hasEmptyUrls = true;
             }
         });
         
-        if (hasEmptyUrls) {
+        // אם אין אף שדה מלא, אל תשלח את הטופס
+        if (filledCount === 0) {
             e.preventDefault();
-            alert('יש למלא את כל שדות ה-URL');
+            alert('יש למלא לפחות שדה URL אחד');
+            return;
+        }
+        
+        // למעבר למיפוי - בודקים שכל השדות מלאים
+        if (hasEmptyUrls && $('button[name="ltgdai_mapping"]').is(':focus')) {
+            e.preventDefault();
+            alert('יש למלא את כל שדות ה-URL או למחוק את השורות הריקות');
         }
     });
     

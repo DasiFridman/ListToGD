@@ -31,7 +31,8 @@ function ltgdai_render_import_page() {
     $gd_post_types = ltgdai_get_geodirectory_post_types();
     
     // הצגת הטופס
-    ltgdai_render_import_form($saved_urls, $post_types, $gd_post_types);
+    ltgdai_render_import_form
+    ($saved_urls, $post_types, $gd_post_types);
 }
 
 
@@ -103,6 +104,7 @@ function ltgdai_get_geodirectory_post_types() {
     
     return $gd_post_types;
 }
+
 /**
  * פונקציה להצגת טופס היבוא
  * 
@@ -188,9 +190,20 @@ function ltgdai_process_import_form_submission() {
         $urls = isset($_POST['ltgdai_urls']) ? array_map('sanitize_url', $_POST['ltgdai_urls']) : array();
         $post_types = isset($_POST['ltgdai_post_types']) ? array_map('sanitize_text_field', $_POST['ltgdai_post_types']) : array();
         
-        // שמירת הנתונים בברירת מחדל קבועה (לא זמנית)
-        update_option('ltgdai_saved_urls', $urls);
-        update_option('ltgdai_saved_post_types', $post_types);
+        // סינון ערכים ריקים
+        $filtered_urls = array();
+        $filtered_post_types = array();
+        
+        foreach ($urls as $index => $url) {
+            if (!empty($url)) {
+                $filtered_urls[] = $url;
+                $filtered_post_types[] = $post_types[$index];
+            }
+        }
+        
+        // שמירת הנתונים בברירת מחדל קבועה
+        update_option('ltgdai_saved_urls', $filtered_urls);
+        update_option('ltgdai_saved_post_types', $filtered_post_types);
         
         // אם נלחץ כפתור שמירה
         if (isset($_POST['ltgdai_save'])) {
@@ -200,9 +213,8 @@ function ltgdai_process_import_form_submission() {
         
         // הפניה לעמוד מיפוי אם התבקש
         if (isset($_POST['ltgdai_mapping'])) {
-            // איפוס הנתונים השמורים כשעוברים למיפוי
-            delete_option('ltgdai_saved_urls');
-            delete_option('ltgdai_saved_post_types');
+            // שמירת הנתונים בטבלת האפשרויות לפני המעבר
+            // update_option כבר נקרא למעלה, אין צורך לקרוא שוב
             
             wp_redirect(admin_url('admin.php?page=ltgdai-mapping'));
             exit;
