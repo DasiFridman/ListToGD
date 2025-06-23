@@ -1,0 +1,495 @@
+/* סגנונות עמוד המיפוי - עיצוב חדש עם דיבים */
+
+/* מיכל ראשי */
+.ltgdai-container {
+    max-width: 1000px;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    text-align: right;
+    direction: rtl;
+}
+
+/* כותרת ראשית */
+.ltgdai-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* עיצוב לשוניות */
+.ltgdai-tabs-container {
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+    border-bottom: none;
+}
+
+.ltgdai-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ltgdai-tab {
+    margin: 0;
+    padding: 0;
+}
+
+.ltgdai-tab a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #444;
+    font-weight: normal;
+    position: relative;
+}
+
+.ltgdai-tab.active a {
+    color: #0073aa;
+    position: relative;
+    border-bottom: 3px solid #0073aa;
+}
+
+.ltgdai-tab-completed {
+    margin-right: 5px;
+    color: #46b450;
+    font-weight: bold;
+}
+
+/* שורת כפתורי פעולה */
+.ltgdai-actions-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.ltgdai-filter-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.ltgdai-action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: auto;
+}
+
+#ltgdai-reset-mappings {
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    color: #E54C4C;
+    padding: 8px 15px;
+    display: inline-block;
+    text-align: center;
+    line-height: 22px;
+}
+
+#ltgdai-extract-again {
+    border: 1px solid #0073aa;
+    background: #f7f7f7;
+    color: #0073aa;
+    padding: 8px 15px;
+    display: inline-block;
+    text-align: center;
+    line-height: 22px;
+}
+
+#ltgdai-extract-again:hover {
+    background: #0073aa;
+    color: #fff;
+}
+
+.ltgdai-filter-select {
+    margin-left: 10px;
+    padding: 5px 10px;
+    min-width: 150px;
+    height: 40px;
+}
+
+/* כפתור בצע */
+#ltgdai-apply-filter {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 8px 30px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+/* שדה בחירת פעולה */
+#ltgdai-field-filter {
+    height: 40px;
+    min-width: 200px;
+    margin-left: 10px;
+}
+
+/* פאנל תוכן */
+.ltgdai-panel {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin-bottom: 0;
+}
+
+.ltgdai-panel-header {
+    background: #fff;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ltgdai-panel-header h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ltgdai-panel-header p {
+    margin: 0;
+    color: #666;
+}
+
+.ltgdai-panel-content {
+    padding: 20px;
+    min-height: 300px;
+}
+
+/* שורת מיפוי (דיב במקום שורת טבלה) - עיצוב כמו ביבוא */
+.ltgdai-mapping-row {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    gap: 15px;
+}
+
+/* .ltgdai-mapping-row:hover {
+    background-color: #f9f9f9;
+} */
+
+/* .ltgdai-mapped-row {
+    background-color: #f0f7ff;
+    border-color: #0073aa;
+} */
+
+/* .ltgdai-mapped-row:hover {
+    background-color: #e8f4fd;
+} */
+
+/* תא בחירה */
+.ltgdai-field-selected {
+    flex: 0 0 40px;
+    text-align: center;
+}
+
+.ltgdai-field-selected input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* תא דוגמאות */
+.ltgdai-sample {
+    flex: 1;
+    min-width: 0;
+}
+
+.ltgdai-sample-data {
+    width: 100%;
+}
+
+.ltgdai-sample-select {
+    width: 100%;
+    padding: 8px;
+    height: 38px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 12px;
+    color: #666;
+}
+
+.ltgdai-empty-sample {
+    color: #999;
+    font-style: italic;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* תא שדה GD */
+.ltgdai-gd-field {
+    flex: 1;
+    min-width: 0;
+}
+
+.ltgdai-gd-select {
+    width: 100%;
+    padding: 8px 12px;
+    height: 38px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+.ltgdai-gd-select:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+}
+
+.ltgdai-required {
+    color: #e53935;
+    margin-right: 3px;
+}
+
+/* מיכל המיפוי הראשי */
+#ltgdai-mapping-list {
+    margin-bottom: 20px;
+}
+
+/* נתונים מחולצים */
+.ltgdai-extracted-data {
+    margin-bottom: 30px;
+}
+
+.ltgdai-url-display {
+    font-family: monospace;
+    background: #fff;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    direction: ltr;
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+}
+
+/* כפתורים - דיב נפרד עם רווח */
+.ltgdai-button-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.ltgdai-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1px solid;
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 18px;
+}
+
+.ltgdai-save {
+    background: #0073aa;
+    color: #fff !important;
+    border-color: #0073aa;
+}
+
+.ltgdai-save:hover {
+    background: #006291;
+    border-color: #006291;
+}
+
+.ltgdai-secondary {
+    background: #f7f7f7;
+    color: #555 !important;
+    border-color: #ccc;
+}
+
+.ltgdai-secondary:hover {
+    background: #f0f0f0;
+}
+
+.ltgdai-mapping {
+    background: #46b450;
+    color: #fff !important;
+    border-color: #46b450;
+}
+
+.ltgdai-success {
+    background: #46b450;
+    color: #fff !important;
+    border-color: #46b450;
+}
+
+.ltgdai-success:hover {
+    background: #3d9c46;
+    border-color: #3d9c46;
+}
+
+/* כפתורים בתחתית הפאנל */
+.ltgdai-bottom-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+/* שדות קלט כמו ביבוא */
+.ltgdai-url-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 1.4;
+    height: 38px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.ltgdai-url-input:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+}
+
+/* תפריט בחירה כמו ביבוא */
+.ltgdai-post-type-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 1.4;
+    height: 38px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.ltgdai-post-type-select:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+}
+
+/* התאמות למסכים קטנים */
+@media screen and (max-width: 782px) {
+    .ltgdai-container {
+        margin: 10px 0;
+    }
+    
+    .ltgdai-mapping-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    
+    .ltgdai-field-selected,
+    .ltgdai-sample,
+    .ltgdai-gd-field {
+        flex: none;
+        border-left: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .ltgdai-gd-field {
+        border-bottom: none;
+    }
+    
+    .ltgdai-field-selected {
+        order: 1;
+        text-align: right;
+        padding: 8px 15px;
+    }
+    
+    .ltgdai-sample {
+        order: 2;
+        padding: 8px 15px;
+    }
+    
+    .ltgdai-gd-field {
+        order: 3;
+        padding: 8px 15px;
+    }
+    
+    .ltgdai-button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .ltgdai-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .ltgdai-tabs {
+        flex-direction: column;
+    }
+    
+    .ltgdai-tab {
+        width: 100%;
+    }
+    
+    .ltgdai-tab a {
+        text-align: center;
+    }
+}
+
+/* התאמות למסכים בינוניים */
+@media screen and (max-width: 1024px) {
+    .ltgdai-field-selected {
+        flex: 0 0 50px;
+    }
+}
+/* כפתור הוספת שדה מותאם */
+.ltgdai-add-field-container {
+    text-align: right;
+    margin: 15px 0;
+    padding: 10px 0;
+}
+
+#ltgdai-add-custom-field {
+    background-color: #f9f9f9;
+    color: #0073aa;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+/* שדות מותאמים - כמו השורות הרגילות */
+.ltgdai-custom-field-row {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+
+
+.ltgdai-custom-field-input {
+    width: 93%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 38px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.ltgdai-custom-field-input:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+    background-color: #f9f9f9;
+}
+
+/* מיכל השדות המותאמים */
+#ltgdai-custom-fields-container {
+    margin-bottom: 0;
+}
